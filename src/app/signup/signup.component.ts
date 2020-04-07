@@ -7,23 +7,12 @@ import { Component } from '@angular/core';
 })
 
 export class SignupComponent {
-  name: string;
-  topic: string;
-  desc: string;
+  name: any;
+  topic: any;
+  desc: any;
 
-  addName(newName: string) {
-    this.name = newName;
-    console.log(this.name);
-  }
-
-  addTopic(newTopic: string) {
-    this.topic = newTopic;
-    console.log(this.topic);
-  }
-
-  addDesc(newDesc: string) {
-    this.desc = newDesc;
-    console.log(this.desc)
+  onKeyUp() {
+    console.log(`Name: ${this.name}, Topic: ${this.topic}, Description: ${this.desc}`)
   }
 
 }
