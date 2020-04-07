@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-signup',
@@ -7,9 +7,9 @@ import { Component } from '@angular/core';
 })
 
 export class SignupComponent {
-  name: any;
-  topic: any;
-  desc: any;
+  @Input() name: any;
+  @Input() topic: any;
+  @Input() desc: any;
 
   onKeyUp() {
     console.log(`Name: ${this.name}, Topic: ${this.topic}, Description: ${this.desc}`)
