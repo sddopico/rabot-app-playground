@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap'
 
 @Component({
   selector: 'app-signup',
@@ -11,8 +12,6 @@ export class SignupComponent {
   @Input() topic: any;
   @Input() desc: any;
 
-  onKeyUp() {
-    console.log(`Name: ${this.name}, Topic: ${this.topic}, Description: ${this.desc}`)
-  }
+  constructor(public activeModal: NgbActiveModal) {}
 
 }

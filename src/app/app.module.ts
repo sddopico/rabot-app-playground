@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SignupComponent } from './signup/signup.component';
 import { DatePickerComponent } from './date-picker/date-picker.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -16,9 +17,13 @@ import { DatePickerComponent } from './date-picker/date-picker.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [SignupComponent],
+  bootstrap: [
+    AppComponent,
+    SignupComponent
+  ]
 })
 export class AppModule { }
