@@ -5,5 +5,11 @@ import { Injectable } from '@angular/core';
 })
 export class SheetService {
 
+  openRows: number = 3;
+
+  getRows() {
+    return this.openRows
+  }
+
   constructor() { }
 }

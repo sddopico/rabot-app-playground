@@ -1,26 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Output } from '@angular/core';
 import { SignupComponent } from '../signup/signup.component';
 import { CalendarService } from '../calendar.service';
-import { SheetService } from '../sheet.service';
+//import { SheetService } from '../sheet.service';
 
 @Component({
   selector: 'app-date-picker',
   templateUrl: './date-picker.component.html',
   styleUrls: ['./date-picker.component.css']
 })
-export class DatePickerComponent implements OnInit {
+export class DatePickerComponent {
 
-  private openSpots: number;
+  @Output() datesAvailable: string[];
   signUpForm = new SignupComponent;
 
-  constructor(dates: CalendarService, slots: SheetService) {
-    if(!dates || !slots) {
-      throw new Error("Sorry, there are no slots available in the given time period.")
-    }
-    this.openSpots = dates.len;
-  }
-
-  ngOnInit(): void {
+  constructor(dates: CalendarService) {
+    this.datesAvailable = dates.getDates();
   }
 
 }

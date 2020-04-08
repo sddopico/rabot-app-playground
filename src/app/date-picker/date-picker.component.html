@@ -1,1 +1,11 @@
-<p>date-picker works!</p>
+<div class="card" style="width: 18rem;">
+  <div class="card-header">
+    {{ datesAvailable.length }} Dates Available
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"
+        *ngFor="let date of datesAvailable">
+      {{ date }}
+    </li>
+  </ul>
+</div>
