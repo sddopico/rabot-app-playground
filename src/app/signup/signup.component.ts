@@ -8,9 +8,9 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap'
 })
 
 export class SignupComponent {
-  @Input() name: any;
-  @Input() topic: any;
-  @Input() desc: any;
+  @Input() name: string;
+  @Input() topic: string;
+  @Input() desc: string;
 
   constructor(public activeModal: NgbActiveModal) {}
 

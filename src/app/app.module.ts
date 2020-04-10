@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { SignupComponent } from './signup/signup.component';
 import { DatePickerComponent } from './date-picker/date-picker.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DateComponent } from './date/date.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignupComponent,
-    DatePickerComponent
+    DatePickerComponent,
+    DateComponent
   ],
   imports: [
     BrowserModule,
