@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { SignupComponent } from './signup/signup.component';
 import { DatePickerComponent } from './date-picker/date-picker.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AngularFireModule } from '@angular/fire'
+import { environment } from '../environments/environment'
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [SignupComponent],
   bootstrap: [
