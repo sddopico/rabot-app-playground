@@ -24,7 +24,8 @@ import { AngularFireAuthModule } from '@angular/fire/auth'
     FormsModule,
     NgbModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    AngularFireAuthModule
   ],
   providers: [SignupComponent],
   bootstrap: [
