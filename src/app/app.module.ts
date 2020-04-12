@@ -7,8 +7,9 @@ import { AppComponent } from './app.component';
 import { SignupComponent } from './signup/signup.component';
 import { DatePickerComponent } from './date-picker/date-picker.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { AngularFireModule } from '@angular/fire'
-import { environment } from '../environments/environment'
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
+import { AngularFirestoreModule } from '@angular/fire/firestore'
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { environment } from '../environments/environment'
     AppRoutingModule,
     FormsModule,
     NgbModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule
   ],
   providers: [SignupComponent],
   bootstrap: [
