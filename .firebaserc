@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "rabot-app": {
+      "hosting": {
+        "rabot-app": [
+          "rabot-app"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "rabot-app",
+      "public": "dist/rabot-app",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}
