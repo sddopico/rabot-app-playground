@@ -28,12 +28,55 @@ export class AuthService {
       switchMap(user => {
         // Logged in?
         if (user) {
-          return this.afs.doc<User>("users/${user.id}").valueChanges();
+          return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
         } else {
           // Logged out
           return of(null);
         }
       })
     );
+  }
+
+  /*
+googleSignIn(): Triggers Google Signin popup window and authenticates the user.
+RETURNs -> Promise that resolves auth credential
+*/
+
+  async googleSignIn() {
+    const provider = new auth.GoogleAuthProvider();
+    const credential = await this.afAuth.auth.signInWithPopup(provider);
+    return this.updateUserData(credential.user);
+  }
+
+  /*
+updateUserData(user): Initializes custom data in Firestore.
+PARAMs -> user
+SETs -> custom user data
+REQUIRE { merge: true } to make SET non-destructive for returning users
+*/
+
+  private updateUserData(user) {
+    // Sets user data to Firestor login
+    const userRef: AngularFirestoreDocument<User> = this.afs.doc(
+      `users/${user.uid}`
+    );
+
+    const data = {
+      uid = user.uid,
+      email = user.email,
+      displayName: user.displayName,
+      photoURL: user.photoURL
+    };
+
+    return userRef.set(data, { merge: true });
+  }
+
+  /*
+signOut(): Signs out user and navigates to safe route
+*/
+
+  async signOut() {
+    await this.afAuth.auth.signOut();
+    this.router.navigate(["/"]);
   }
 }
