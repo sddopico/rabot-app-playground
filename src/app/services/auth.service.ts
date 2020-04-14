@@ -55,17 +55,17 @@ SETs -> custom user data
 REQUIRE { merge: true } to make SET non-destructive for returning users
 */
 
-  private updateUserData(user) {
+  private updateUserData({ uid, email, displayName, photoURL }: User) {
     // Sets user data to Firestor login
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(
-      `users/${user.uid}`
+      `users/${uid}`
     );
 
     const data = {
-      uid = user.uid,
-      email = user.email,
-      displayName: user.displayName,
-      photoURL: user.photoURL
+      uid,
+      email,
+      displayName,
+      photoURL
     };
 
     return userRef.set(data, { merge: true });
