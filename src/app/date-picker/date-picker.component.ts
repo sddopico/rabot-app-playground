@@ -1,6 +1,6 @@
 import { Component, Output } from '@angular/core';
 import { SignupComponent } from '../signup/signup.component';
-import { CalendarService } from '../calendar.service';
+import { CalendarService } from '../services/calendar.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
