@@ -22,5 +22,18 @@ export class AuthService {
     private afAuth: AngularFireAuth,
     private afs: AngularFirestore,
     private router: Router
-  ) {}
+  ) {
+    // Get auth state, then fetch Firestore user document or return null
+    this.user$ = this.afAuth.authState.pipe(
+      switchMap(user => {
+        // Logged in?
+        if (user) {
+          return this.afs.doc<User>("users/${user.id}").valueChanges();
+        } else {
+          // Logged out
+          return of(null);
+        }
+      })
+    );
+  }
 }
