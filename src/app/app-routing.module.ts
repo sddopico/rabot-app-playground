@@ -1,11 +1,11 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 
-import { DatePickerComponent } from "./date-picker/date-picker.component";
+import { UserProfileComponent } from "./user-profile/user-profile.component";
 import { AuthGuard } from "./services/auth.guard";
 
 const routes: Routes = [
-  { path: "secret", component: DatePickerComponent, canActivate: [AuthGuard] }
+  { path: "secret", component: UserProfileComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

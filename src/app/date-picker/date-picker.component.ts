@@ -1,14 +1,13 @@
-import { Component, Output } from '@angular/core';
-import { SignupComponent } from '../signup/signup.component';
-import { CalendarService } from '../services/calendar.service';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Component, Output } from "@angular/core";
+import { SignupComponent } from "../signup/signup.component";
+import { CalendarService } from "../services/calendar.service";
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
-  selector: 'app-date-picker',
-  templateUrl: './date-picker.component.html',
-  styleUrls: ['./date-picker.component.css']
+  selector: "app-date-picker",
+  templateUrl: "./date-picker.component.html",
+  styleUrls: ["./date-picker.component.css"]
 })
-
 export class DatePickerComponent {
   @Output() datesAvailable: string[];
 
@@ -19,5 +18,4 @@ export class DatePickerComponent {
   open() {
     this.modalService.open(SignupComponent);
   }
-
 }

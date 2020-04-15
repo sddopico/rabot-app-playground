@@ -20,8 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
-    SignupComponent,
     DatePickerComponent,
+    SignupComponent,
     UserProfileComponent,
   ],
   imports: [
