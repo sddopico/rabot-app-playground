@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
-import { User } from "./user.model";
 
 import { auth } from "firebase/app";
 import { AngularFireAuth } from "@angular/fire/auth";
@@ -11,6 +10,7 @@ import {
 
 import { Observable, of } from "rxjs";
 import { switchMap } from "rxjs/operators";
+import { User } from "./user.model";
 
 @Injectable({
   providedIn: "root"
@@ -77,6 +77,6 @@ signOut(): Signs out user and navigates to safe route
 
   async signOut() {
     await this.afAuth.auth.signOut();
-    this.router.navigate(["/"]);
+    return this.router.navigate(["/"]);
   }
 }
