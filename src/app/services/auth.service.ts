@@ -77,6 +77,6 @@ signOut(): Signs out user and navigates to safe route
 
   async signOut() {
     await this.afAuth.signOut();
-    return this.router.navigate(['/']);
+    (<any>this.router).navigate(['/']);
   }
 }
