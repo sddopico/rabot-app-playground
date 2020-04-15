@@ -1,19 +1,19 @@
-import { Injectable } from "@angular/core";
-import { Router } from "@angular/router";
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
-import { auth } from "firebase/app";
-import { AngularFireAuth } from "@angular/fire/auth";
+import { auth } from 'firebase/app';
+import { AngularFireAuth } from '@angular/fire/auth';
 import {
   AngularFirestore,
-  AngularFirestoreDocument
-} from "@angular/fire/firestore";
+  AngularFirestoreDocument,
+} from '@angular/fire/firestore';
 
-import { Observable, of } from "rxjs";
-import { switchMap } from "rxjs/operators";
-import { User } from "./user.model";
+import { Observable, of } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
+import { User } from './user.model';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root',
 })
 export class AuthService {
   user$: Observable<User>;
@@ -25,7 +25,7 @@ export class AuthService {
   ) {
     // Get auth state, then fetch Firestore user document or return null
     this.user$ = this.afAuth.authState.pipe(
-      switchMap(user => {
+      switchMap((user) => {
         // Logged in?
         if (user) {
           return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
@@ -44,7 +44,7 @@ RETURNs -> Promise that resolves auth credential
 
   async googleSignIn() {
     const provider = new auth.GoogleAuthProvider();
-    const credential = await this.afAuth.auth.signInWithPopup(provider);
+    const credential = await this.afAuth.signInWithPopup(provider);
     return this.updateUserData(credential.user);
   }
 
@@ -65,7 +65,7 @@ REQUIRE { merge: true } to make SET non-destructive for returning users
       uid,
       email,
       displayName,
-      photoURL
+      photoURL,
     };
 
     return userRef.set(data, { merge: true });
@@ -76,7 +76,7 @@ signOut(): Signs out user and navigates to safe route
 */
 
   async signOut() {
-    await this.afAuth.auth.signOut();
-    return this.router.navigate(["/"]);
+    await this.afAuth.signOut();
+    return this.router.navigate(['/']);
   }
 }
