@@ -6,19 +6,23 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SignupComponent } from './signup/signup.component';
 import { DatePickerComponent } from './date-picker/date-picker.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { UserProfileComponent } from './user-profile/user-profile.component'
+
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignupComponent,
     DatePickerComponent,
-    UserProfileComponent
+    UserProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,12 +31,10 @@ import { UserProfileComponent } from './user-profile/user-profile.component'
     NgbModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    HttpClientModule,
   ],
   providers: [SignupComponent],
-  bootstrap: [
-    AppComponent,
-    SignupComponent
-  ]
+  bootstrap: [AppComponent, SignupComponent],
 })
-export class AppModule { }
+export class AppModule {}
